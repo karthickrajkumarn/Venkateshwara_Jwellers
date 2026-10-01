@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Sri Venkateshwara Jeweller · Chinnamanur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#F8F2E6;color:#2A1A1F;font-family:Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#7A1E3F;text-decoration:none}
+a:hover{color:#B8892A}
+input,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<div style="background:#3A0B20;color:#E9C46A;font-size:13px;letter-spacing:.06em">
+  <div style="max-width:1200px;margin:0 auto;padding:8px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between">
+    <span>Open daily · 9 AM – 9 PM</span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap"><span>22K {{ r22 }}/g</span><span>Silver {{ rS }}/g</span><a href="tel:+919659033300" style="color:#E9C46A">+91 96590 33300</a></span>
+  </div>
+</div>
+
+<header style="background:#F8F2E6;border-bottom:1px solid #E6D9BE;position:sticky;top:0;z-index:10">
+  <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;cursor:pointer">
+      <div style="width:66px;height:56px;overflow:hidden;position:relative;flex:none">
+        <img src="./assets/logo-gold.jpeg" alt="" style="position:absolute;width:136px;left:-34px;top:-45px;mix-blend-mode:multiply">
+      </div>
+      <div style="display:flex;flex-direction:column;line-height:1.1">
+        <span style="font-family:Marcellus,serif;font-size:20px;letter-spacing:.08em;color:#4A0F28">SRI VENKATESHWARA</span>
+        <span style="font-size:12px;letter-spacing:.42em;color:#B8892A">JEWELLER · CHINNAMANUR</span>
+      </div>
+    </div>
+    <nav style="display:flex;gap:4px;flex-wrap:wrap">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+        <button onClick="{{ n.go }}" style="{{ n.style }}">{{ n.label }}</button>
+      </sc-for>
+    </nav>
+  </div>
+</header>
+
+<main style="flex:1">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <section style="background:#4A0F28;color:#F8F2E6">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0">
+      <div style="padding:72px 24px 64px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+        <span style="font-size:13px;letter-spacing:.3em;color:#E9C46A">GOLD · SILVER · BRIDAL</span>
+        <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5.4vw,68px);line-height:1.05;text-wrap:balance">Gold made to be handed down.</h1>
+        <p style="margin:0;font-family:'Noto Serif Tamil',serif;font-size:20px;color:#E9C46A">தலைமுறைகள் போற்றும் தங்கம்</p>
+        <p style="margin:0;max-width:460px;font-size:18px;line-height:1.6;color:#EADFCB;text-wrap:pretty">Hallmarked gold and pure silver on Main Road, Chinnamanur. Bridal sets, everyday chains and pooja silver, sold at today's honest rate.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <button onClick="{{ goCollections }}" style="background:#E9C46A;color:#3A0B20;border:0;padding:15px 28px;font-size:15px;font-weight:600;letter-spacing:.08em;cursor:pointer" style-hover="background:#F3D88E">SEE COLLECTIONS</button>
+          <button onClick="{{ goRates }}" style="background:transparent;color:#F8F2E6;border:1px solid #B8892A;padding:15px 28px;font-size:15px;font-weight:500;letter-spacing:.08em;cursor:pointer" style-hover="border-color:#E9C46A;color:#E9C46A">TODAY'S RATES</button>
+        </div>
+      </div>
+      <div style="min-height:520px;position:relative;overflow:hidden">
+        <img src="./assets/store-front.jpg" alt="Store front at night" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 70%">
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F8F2E6;border-bottom:1px solid #E6D9BE">
+    <div style="max-width:1200px;margin:0 auto;padding:28px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:Marcellus,serif;font-size:22px;color:#4A0F28">Today's rate</span>
+        <span style="font-size:14px;color:#6B5A55">{{ rateDate }} · per gram</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;letter-spacing:.2em;color:#8A6A20">22K GOLD</span><span style="font-family:Marcellus,serif;font-size:30px;color:#2A1A1F">{{ r22 }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;letter-spacing:.2em;color:#8A6A20">24K GOLD</span><span style="font-family:Marcellus,serif;font-size:30px;color:#2A1A1F">{{ r24 }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;letter-spacing:.2em;color:#6B6B6B">SILVER</span><span style="font-family:Marcellus,serif;font-size:30px;color:#2A1A1F">{{ rS }}</span></div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:88px 24px 40px;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h2 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:44px;color:#4A0F28">Collections</h2>
+        <span style="font-family:'Noto Serif Tamil',serif;color:#8A6A20">நகை தொகுப்புகள்</span>
+      </div>
+      <button onClick="{{ goCollections }}" style="background:none;border:0;border-bottom:1px solid #B8892A;padding:4px 0;color:#4A0F28;font-size:15px;letter-spacing:.08em;cursor:pointer">ALL 9 COLLECTIONS →</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:20px">
+      <sc-for list="{{ featured }}" as="c" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:4/5;background:#EFE5D2"><img src="{{ c.img }}" alt="{{ c.en }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-family:Marcellus,serif;font-size:22px">{{ c.en }}</span>
+            <span style="font-family:'Noto Serif Tamil',serif;font-size:14px;color:#8A6A20">{{ c.ta }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:56px 24px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
+    <img src="./assets/store-inside.png" alt="Necklace display inside the showroom" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;letter-spacing:.3em;color:#8A6A20">THE SHOWROOM</span>
+      <h2 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:40px;line-height:1.15;color:#4A0F28;text-wrap:balance">Every piece weighed in front of you.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3A3A;text-wrap:pretty">We work from the M. Karuppiah Pillai Sons Jewellers showroom on the Kollam–Theni highway. Gold is weighed at the counter, rates are posted every morning, and making charges are written on the bill.</p>
+      <button onClick="{{ goAbout }}" style="align-self:flex-start;background:#4A0F28;color:#F8F2E6;border:0;padding:14px 26px;font-size:14px;letter-spacing:.1em;cursor:pointer" style-hover="background:#6A1A3C">ABOUT US</button>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isCollections }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#4A0F28;color:#F8F2E6">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 24px 56px;display:flex;flex-direction:column;gap:12px">
+      <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5vw,60px)">Collections</h1>
+      <span style="font-family:'Noto Serif Tamil',serif;font-size:18px;color:#E9C46A">நகை தொகுப்புகள்</span>
+      <p style="margin:8px 0 0;max-width:560px;font-size:17px;line-height:1.6;color:#EADFCB">Nine collections in gold and silver. Visit the showroom to see the full range. We can also make pieces to order.</p>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:64px 24px 88px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:40px 24px">
+    <sc-for list="{{ collections }}" as="c" hint-placeholder-count="9">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="aspect-ratio:1/1;background:#EFE5D2"><img src="{{ c.img }}" alt="{{ c.en }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:flex;flex-direction:column;gap:4px;border-top:1px solid #E6D9BE;padding-top:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-family:Marcellus,serif;font-size:24px;color:#2A1A1F">{{ c.en }}</span>
+            <span style="font-size:12px;letter-spacing:.2em;color:#8A6A20">{{ c.metal }}</span>
+          </div>
+          <span style="font-family:'Noto Serif Tamil',serif;font-size:15px;color:#8A6A20">{{ c.ta }}</span>
+          <span style="font-size:15px;line-height:1.5;color:#5A4A4A">{{ c.desc }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isRates }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#4A0F28;color:#F8F2E6">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 24px 56px;display:flex;flex-direction:column;gap:12px">
+      <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5vw,60px)">Today's gold &amp; silver rates</h1>
+      <span style="font-family:'Noto Serif Tamil',serif;font-size:18px;color:#E9C46A">இன்றைய தங்கம் &amp; வெள்ளி விலை</span>
+      <span style="font-size:15px;letter-spacing:.06em;color:#EADFCB">{{ rateDate }} · per gram</span>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:56px 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+    <div style="background:#fff;border:1px solid #E6D9BE;padding:32px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:13px;letter-spacing:.24em;color:#8A6A20">22 KARAT GOLD · 916</span>
+      <span style="font-family:Marcellus,serif;font-size:52px;color:#4A0F28">{{ r22 }}</span>
+      <span style="font-size:15px;color:#5A4A4A">per gram · 8 g sovereign {{ sov22 }}</span>
+    </div>
+    <div style="background:#fff;border:1px solid #E6D9BE;padding:32px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:13px;letter-spacing:.24em;color:#8A6A20">24 KARAT GOLD · 999</span>
+      <span style="font-family:Marcellus,serif;font-size:52px;color:#4A0F28">{{ r24 }}</span>
+      <span style="font-size:15px;color:#5A4A4A">per gram · 8 g {{ sov24 }}</span>
+    </div>
+    <div style="background:#fff;border:1px solid #E6D9BE;padding:32px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:13px;letter-spacing:.24em;color:#6B6B6B">SILVER · 999</span>
+      <span style="font-family:Marcellus,serif;font-size:52px;color:#4A0F28">{{ rS }}</span>
+      <span style="font-size:15px;color:#5A4A4A">per gram · 1 kg {{ kgS }}</span>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px 88px;display:flex;flex-direction:column;gap:16px">
+    <p style="margin:0;max-width:720px;font-size:15px;line-height:1.7;color:#5A4A4A">Rates change through the day and do not include making charges or GST. Call or WhatsApp us for the rate at the time of purchase.</p>
+    <a href="https://wa.me/919659033300?text=Hi%2C%20what%20is%20today%27s%20gold%20rate%3F" target="_blank" style="align-self:flex-start;background:#4A0F28;color:#F8F2E6;padding:14px 26px;font-size:14px;letter-spacing:.1em" style-hover="background:#6A1A3C;color:#F8F2E6">ASK ON WHATSAPP</a>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1200px;margin:0 auto;padding:72px 24px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;letter-spacing:.3em;color:#8A6A20">ABOUT US · எங்களைப் பற்றி</span>
+      <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5vw,60px);line-height:1.05;color:#4A0F28;text-wrap:balance">A Chinnamanur jeweller on Main Road.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:#4A3A3A;text-wrap:pretty">Sri Venkateshwara Jeweller sells from the M. Karuppiah Pillai Sons Jewellers showroom at No. 240, Main Road. We sell hallmarked gold, pure silver and bridal jewellery to families from Chinnamanur and nearby towns.</p>
+    </div>
+    <img src="./assets/store-render.jpg" alt="Showroom building" style="width:100%;max-height:560px;object-fit:cover;display:block">
+  </section>
+  <section style="background:#4A0F28;color:#F8F2E6">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:Marcellus,serif;font-size:26px;color:#E9C46A">Hallmarked gold</span><span style="font-size:16px;line-height:1.6;color:#EADFCB">Every gold piece carries the BIS hallmark and its purity.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:Marcellus,serif;font-size:26px;color:#E9C46A">Weighed at the counter</span><span style="font-size:16px;line-height:1.6;color:#EADFCB">Weight, rate and making charge are written on every bill.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:Marcellus,serif;font-size:26px;color:#E9C46A">Old gold exchange</span><span style="font-size:16px;line-height:1.6;color:#EADFCB">Bring old jewellery. We test it and exchange it at the day's rate.</span></div>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:56px 24px 88px">
+    <img src="./assets/store-inside.png" alt="Inside the showroom" style="width:100%;aspect-ratio:21/9;object-fit:cover;display:block">
+  </section>
+</sc-if>
+
+<sc-if value="{{ isReviews }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#4A0F28;color:#F8F2E6">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 24px 56px;display:flex;flex-direction:column;gap:12px">
+      <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5vw,60px)">What our customers say</h1>
+      <span style="font-family:'Noto Serif Tamil',serif;font-size:18px;color:#E9C46A">வாடிக்கையாளர் கருத்துகள்</span>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+      <div style="background:#fff;border:1px solid #E6D9BE;padding:32px;display:flex;flex-direction:column;gap:20px">
+        <span style="font-family:Marcellus,serif;font-size:48px;line-height:.6;color:#B8892A">“</span>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#2A1A1F;text-wrap:pretty">{{ r.quote }}</p>
+        <div style="display:flex;flex-direction:column;gap:2px;margin-top:auto">
+          <span style="font-weight:600">{{ r.name }}</span>
+          <span style="font-size:13px;color:#8A6A20;letter-spacing:.06em">SAMPLE REVIEW · REPLACE</span>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px 88px">
+    <a href="https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdJNGRHTnRNM1pxGAo" target="_blank" style="display:inline-flex;border-bottom:1px solid #B8892A;padding-bottom:4px;font-size:15px;letter-spacing:.08em">READ OUR GOOGLE REVIEWS →</a>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1200px;margin:0 auto;padding:72px 24px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h1 style="margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(40px,5vw,60px);color:#4A0F28">Visit us</h1>
+        <span style="font-family:'Noto Serif Tamil',serif;font-size:18px;color:#8A6A20">எங்களை சந்திக்க</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.6">
+        <span style="font-weight:600">M. Karuppiah Pillai Sons Jewellers</span>
+        <span>No. 240, Main Road, Kollam – Theni Hwy<br>Chinnamanur, Tamil Nadu 625515</span>
+        <a href="tel:+919659033300" style="font-size:20px;font-family:Marcellus,serif;margin-top:8px">+91 96590 33300</a>
+        <span style="color:#5A4A4A">Open every day · 9 AM – 9 PM</span>
+        <span style="font-family:'Noto Serif Tamil',serif;font-size:15px;color:#8A6A20">தினமும் காலை 9 – இரவு 9</span>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;background:#4A0F28;color:#F8F2E6;padding:20px">
+        <img src="./assets/qr-whatsapp.jpeg" alt="WhatsApp QR code" style="width:120px;height:120px;background:#fff;padding:6px;flex:none">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:Marcellus,serif;font-size:22px;color:#E9C46A">Scan to WhatsApp</span>
+          <span style="font-size:15px;line-height:1.5;color:#EADFCB">Send a photo of a design or ask for today's rate.</span>
+        </div>
+      </div>
+    </div>
+    <form onSubmit="{{ submit }}" style="background:#fff;border:1px solid #E6D9BE;padding:36px;display:flex;flex-direction:column;gap:18px;align-self:start">
+      <span style="font-family:Marcellus,serif;font-size:28px;color:#4A0F28">Send an enquiry</span>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;letter-spacing:.14em;color:#5A4A4A">NAME
+        <input value="{{ fName }}" onChange="{{ onName }}" required style="border:0;border-bottom:1px solid #CDBB98;padding:10px 0;font-size:17px;background:transparent;outline:none;color:#2A1A1F">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;letter-spacing:.14em;color:#5A4A4A">PHONE
+        <input value="{{ fPhone }}" onChange="{{ onPhone }}" type="tel" required style="border:0;border-bottom:1px solid #CDBB98;padding:10px 0;font-size:17px;background:transparent;outline:none;color:#2A1A1F">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;letter-spacing:.14em;color:#5A4A4A">WHAT ARE YOU LOOKING FOR?
+        <textarea value="{{ fMsg }}" onChange="{{ onMsg }}" rows="4" style="border:0;border-bottom:1px solid #CDBB98;padding:10px 0;font-size:17px;background:transparent;outline:none;resize:vertical;color:#2A1A1F"></textarea>
+      </label>
+      <button type="submit" style="background:#4A0F28;color:#F8F2E6;border:0;padding:16px;font-size:14px;letter-spacing:.12em;cursor:pointer;margin-top:6px" style-hover="background:#6A1A3C">SEND ON WHATSAPP</button>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;color:#2E6B3A">Opening WhatsApp with your message…</span></sc-if>
+    </form>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px 88px">
+    <iframe title="Map" src="https://maps.google.com/maps?q=M%20Karuppiah%20Pillai%20Sons%20Jewellers%20Chinnamanur&amp;output=embed" style="width:100%;height:380px;border:1px solid #E6D9BE;display:block" loading="lazy"></iframe>
+  </section>
+</sc-if>
+
+</main>
+
+<footer style="background:#3A0B20;color:#EADFCB">
+  <div style="max-width:1200px;margin:0 auto;padding:56px 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:Marcellus,serif;font-size:22px;letter-spacing:.06em;color:#E9C46A">SRI VENKATESHWARA JEWELLER</span>
+      <span style="font-family:'Noto Serif Tamil',serif;font-size:14px">ஸ்ரீ வெங்கடேஸ்வரா ஜுவல்லர்</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6">
+      <span>No. 240, Main Road, Kollam – Theni Hwy</span>
+      <span>Chinnamanur, Tamil Nadu 625515</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:15px">
+      <a href="tel:+919659033300" style="color:#E9C46A">+91 96590 33300</a>
+      <a href="https://wa.me/919659033300" target="_blank" style="color:#E9C46A">WhatsApp</a>
+      <a href="https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdJNGRHTnRNM1pxGAo" target="_blank" style="color:#E9C46A">Google reviews</a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 24px 28px;border-top:1px solid #5A1E36;font-size:13px;color:#B8A58A">© 2026 Sri Venkateshwara Jeweller · Open daily 9 AM – 9 PM</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;rate22&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:7150,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Today's rates&quot;,&quot;unit&quot;:&quot;₹/g&quot;},&quot;rate24&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:7800,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Today's rates&quot;,&quot;unit&quot;:&quot;₹/g&quot;},&quot;rateSilver&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:98,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Today's rates&quot;,&quot;unit&quot;:&quot;₹/g&quot;},&quot;rateDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Today's rates&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', fName: '', fPhone: '', fMsg: '', sent: false };
+  go = (p) => () => { this.setState({ page: p }); window.scrollTo(0, 0); };
+  fmt = (n) => '₹' + Number(n || 0).toLocaleString('en-IN');
+  renderVals() {
+    const p = this.props, page = this.state.page;
+    const r22 = p.rate22 ?? 7150, r24 = p.rate24 ?? 7800, rs = p.rateSilver ?? 98;
+    const pages = [['home','Home'],['collections','Collections'],['rates','Rates'],['about','About'],['reviews','Reviews'],['contact','Contact']];
+    const nav = pages.map(([k, l]) => ({
+      label: l, go: this.go(k),
+      style: { background: page === k ? '#4A0F28' : 'transparent', color: page === k ? '#F8F2E6' : '#4A0F28', border: 0, padding: '10px 14px', fontSize: 14, letterSpacing: '.08em', cursor: 'pointer', fontFamily: 'Jost, sans-serif' }
+    }));
+    const C = [
+      ['bridal','Bridal','மணப்பெண் நகைகள்','GOLD','Temple sets, haarams and complete wedding sets.'],
+      ['necklaces','Necklaces','நெக்லஸ்','GOLD','Chokers, long chains and light everyday necklaces.'],
+      ['bangles','Bangles','வளையல்கள்','GOLD','Plain, stone-set and antique-finish bangles.'],
+      ['earrings','Earrings','காதணிகள்','GOLD','Jhumkas, studs and drops.'],
+      ['rings','Rings','மோதிரங்கள்','GOLD','Engagement, stone and daily-wear rings.'],
+      ['chains','Chains','சங்கிலிகள்','GOLD','Rope, box and thali chains in every weight.'],
+      ['silver','Silver & Pooja','வெள்ளி பூஜை பொருட்கள்','SILVER','Lamps, plates, kumkum boxes and idols.'],
+      ['kids','Kids','குழந்தைகள்','GOLD · SILVER','Anklets, bracelets and first-birthday gifts.'],
+      ['mens','Men\'s','ஆண்கள்','GOLD','Chains, bracelets and rings for men.']
+    ].map(([k, en, ta, metal, desc]) => ({ slot: 'col-' + k, img: './assets/collections/' + k + '.webp', en, ta, metal, desc, ph: 'Drop ' + en.toLowerCase() + ' photo' }));
+    const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+    return {
+      nav, r22: this.fmt(r22), r24: this.fmt(r24), rS: this.fmt(rs),
+      sov22: this.fmt(r22 * 8), sov24: this.fmt(r24 * 8), kgS: this.fmt(rs * 1000),
+      rateDate: p.rateDate || today,
+      isHome: page === 'home', isCollections: page === 'collections', isRates: page === 'rates',
+      isAbout: page === 'about', isReviews: page === 'reviews', isContact: page === 'contact',
+      goHome: this.go('home'), goCollections: this.go('collections'), goRates: this.go('rates'), goAbout: this.go('about'),
+      collections: C, featured: [C[0], C[1], C[2], C[6]],
+      reviews: [
+        { quote: 'We bought our daughter\'s full wedding set here. They explained the weight and making charge for each piece.', name: 'Customer name' },
+        { quote: 'Fair old-gold exchange. They tested it in front of us and gave us the day\'s rate.', name: 'Customer name' },
+        { quote: 'Good range of silver pooja items, and the staff are patient.', name: 'Customer name' }
+      ],
+      fName: this.state.fName, fPhone: this.state.fPhone, fMsg: this.state.fMsg, sent: this.state.sent,
+      onName: (e) => this.setState({ fName: e.target.value }),
+      onPhone: (e) => this.setState({ fPhone: e.target.value }),
+      onMsg: (e) => this.setState({ fMsg: e.target.value }),
+      submit: (e) => {
+        e.preventDefault();
+        const s = this.state;
+        const t = encodeURIComponent(`Hi, I'm ${s.fName} (${s.fPhone}). ${s.fMsg}`);
+        window.open('https://wa.me/919659033300?text=' + t, '_blank');
+        this.setState({ sent: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
